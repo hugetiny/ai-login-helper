@@ -1,0 +1,14 @@
+.trigger-badge {
+  font-size: 12px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.network-item.user-triggered {
+  background: rgba(76, 175, 80, 0.1);
+  border-left: 3px solid #4caf50;
+}
+
+.network-item.user-triggered:hover {
+  background: rgba(76, 175, 80, 0.2);
+}

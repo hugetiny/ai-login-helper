@@ -1,0 +1,694 @@
+/**
+ * AI 登录检测调试器 - 样式
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #1a1a2e;
+  color: #e0e0e0;
+  min-width: 420px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.container {
+  padding: 16px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #333;
+}
+
+.header h1 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #888;
+}
+
+.section {
+  margin-bottom: 16px;
+}
+
+.section h2 {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.info-box {
+  background: #252542;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 13px;
+}
+
+.info-box .url {
+  color: #4fc3f7;
+  word-break: break-all;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.info-box .domain {
+  color: #81c784;
+  font-weight: 500;
+}
+
+.info-box .site-match {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #333;
+}
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+  background: #333;
+  color: #e0e0e0;
+}
+
+.btn:hover {
+  background: #444;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #4f46e5;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #6366f1;
+}
+
+.btn-success {
+  background: #059669;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #10b981;
+}
+
+.btn-danger {
+  background: #dc2626;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #ef4444;
+}
+
+.cookie-list {
+  background: #1e1e30;
+  border-radius: 8px;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 12px;
+}
+
+.cookie-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  background: #252542;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.cookie-item:last-child {
+  margin-bottom: 0;
+}
+
+.cookie-name {
+  font-family: monospace;
+  color: #f0a060;
+  font-weight: 500;
+}
+
+.cookie-value {
+  font-family: monospace;
+  color: #888;
+  font-size: 11px;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cookie-domain {
+  font-size: 10px;
+  color: #666;
+  width: 100%;
+}
+
+.cookie-item.highlighted {
+  background: #2d4a3d;
+  border: 1px solid #4caf50;
+}
+
+.cookie-item.highlighted .cookie-name {
+  color: #81c784;
+}
+
+.result-box {
+  background: #252542;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.result-box.success {
+  background: #1b4332;
+  border: 1px solid #2d6a4f;
+}
+
+.result-box.failure {
+  background: #4a1c1c;
+  border: 1px solid #7a2c2c;
+}
+
+.result-status {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.result-details {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.result-details ul {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.result-details li {
+  margin-bottom: 4px;
+}
+
+.code-box {
+  background: #0d1117;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 11px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  color: #c9d1d9;
+  max-height: 180px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.code-box .copy-code-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 8px;
+  font-size: 10px;
+  background: #333;
+  border: none;
+  border-radius: 4px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.code-box .copy-code-btn:hover {
+  background: #444;
+}
+
+.hint {
+  color: #666;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.sites-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.site-card {
+  background: #252542;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.site-card:hover {
+  background: #2d2d50;
+}
+
+.site-card .icon {
+  font-size: 20px;
+}
+
+.site-card .info {
+  flex: 1;
+  min-width: 0;
+}
+
+.site-card .name {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.site-card .status {
+  font-size: 10px;
+}
+
+.site-card.logged-in {
+  border-left: 3px solid #4caf50;
+}
+
+.site-card.logged-in .status {
+  color: #81c784;
+}
+
+.site-card.logged-out {
+  border-left: 3px solid #f44336;
+}
+
+.site-card.logged-out .status {
+  color: #e57373;
+}
+
+.site-card.unknown {
+  border-left: 3px solid #666;
+}
+
+.site-card.unknown .status {
+  color: #888;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #888;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #333;
+  border-top-color: #4f46e5;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.tag.login-cookie {
+  background: #2d6a4f;
+  color: #81c784;
+}
+
+.tag.session-cookie {
+  background: #4a3f6b;
+  color: #a78bfa;
+}
+
+.tag.tracking-cookie {
+  background: #4a3a2d;
+  color: #d4a574;
+}
+
+.refresh-all-btn {
+  margin-bottom: 8px;
+}
+
+/* 步骤引导样式 */
+.step-guide {
+  background: #1e1e30;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.step {
+  margin-bottom: 12px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.step:last-child {
+  margin-bottom: 0;
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #252542;
+}
+
+.step-number {
+  width: 24px;
+  height: 24px;
+  background: #4f46e5;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.step.completed .step-number {
+  background: #4caf50;
+}
+
+.step.active .step-number {
+  background: #f59e0b;
+}
+
+.step-title {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.step-status {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #333;
+  color: #888;
+}
+
+.step.completed .step-status {
+  background: #1b4332;
+  color: #81c784;
+}
+
+.step.active .step-status {
+  background: #4a3a1a;
+  color: #f59e0b;
+}
+
+.step-content {
+  padding: 12px;
+  background: #1a1a2e;
+}
+
+.step-desc {
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.step-desc strong {
+  color: #f0a060;
+}
+
+.cookie-count {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #81c784;
+}
+
+/* 差异结果样式 */
+.diff-result {
+  margin-top: 16px;
+  background: #1e1e30;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.diff-result.hidden {
+  display: none !important;
+}
+
+.diff-result h3 {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 12px;
+}
+
+.diff-section {
+  margin-bottom: 12px;
+}
+
+.diff-section:last-child {
+  margin-bottom: 0;
+}
+
+.diff-section-title {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.diff-section-title.new-cookies {
+  color: #81c784;
+}
+
+.diff-section-title.removed-cookies {
+  color: #e57373;
+}
+
+.diff-section-title.changed-cookies {
+  color: #f59e0b;
+}
+
+.diff-cookie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.diff-cookie {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 11px;
+}
+
+.diff-cookie.new {
+  background: #1b4332;
+  color: #81c784;
+  border: 1px solid #2d6a4f;
+}
+
+.diff-cookie.removed {
+  background: #4a1c1c;
+  color: #e57373;
+  border: 1px solid #7a2c2c;
+}
+
+.diff-cookie.changed {
+  background: #4a3a1a;
+  color: #f59e0b;
+  border: 1px solid #6b5a2a;
+}
+
+.diff-cookie.important-change {
+  background: #3a1a4a;
+  color: #c084fc;
+  border: 1px solid #5a2a6b;
+  font-weight: 600;
+  box-shadow: 0 0 8px rgba(192, 132, 252, 0.3);
+}
+
+.change-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 600;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.change-badge.boolean {
+  background: #7c3aed;
+  color: white;
+}
+
+.change-badge.binary {
+  background: #2563eb;
+  color: white;
+}
+
+.value-change {
+  font-size: 10px;
+  margin-top: 4px;
+  color: #aaa;
+  font-family: monospace;
+}
+
+.value-change .old-value {
+  color: #e57373;
+  text-decoration: line-through;
+}
+
+.value-change .new-value {
+  color: #81c784;
+  font-weight: 600;
+}
+
+.toolbar-bottom {
+  margin-top: 12px;
+}
+
+/* 已保存站点列表 */
+.saved-sites-list {
+  background: #1e1e30;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.saved-site-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: #252542;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.saved-site-item:last-child {
+  margin-bottom: 0;
+}
+
+.saved-site-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.saved-site-icon {
+  font-size: 18px;
+}
+
+.saved-site-name {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.saved-site-domain {
+  font-size: 11px;
+  color: #888;
+}
+
+.saved-site-cookies {
+  font-size: 10px;
+  color: #81c784;
+  margin-top: 2px;
+}
+
+.saved-site-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.saved-site-actions .btn {
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+.btn-small {
+  padding: 4px 8px !important;
+  font-size: 11px !important;
+}
+
+/* 自动保存提示 */
+.auto-save-notice {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #1b4332;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #81c784;
+  display: none;
+}
+
+.auto-save-notice.show {
+  display: block;
+}
+
+/* 导出统计 */
+.export-stats {
+  font-size: 11px;
+  color: #888;
+  margin-top: 8px;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

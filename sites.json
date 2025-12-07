@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "description": "由 AI 登录检测调试器导出",
+  "exportTime": "2025-12-05T13:06:46.501Z",
+  "sites": [
+    {
+      "cookieRules": {
+        "anyOf": true,
+        "excludeCookies": [],
+        "authIndicators": [
+          "passport_fe_beating_status",
+          "passport_csrf_token",
+          "passport_csrf_token_default",
+          "passport_mfa_token",
+          "d_ticket"
+        ]
+      },
+      "domains": [
+        "www.doubao.com",
+        ".doubao.com"
+      ],
+      "enabled": true,
+      "icon": "🤖",
+      "id": "doubao",
+      "name": "豆包",
+      "url": "https://www.doubao.com/"
+    }
+  ]
+}
