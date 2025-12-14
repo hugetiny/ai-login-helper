@@ -5,6 +5,25 @@
 // 站点配置
 let AI_SITES = [];
 
+// i18n 工具函数
+function i18n(key, substitutions) {
+  const message = chrome.i18n.getMessage(key, substitutions);
+  return message || key;
+}
+
+// 应用 i18n 到页面
+function applyI18n() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const text = i18n(key);
+    if (text && text !== key) {
+      el.textContent = text;
+    }
+  });
+  // 设置 html lang 属性
+  document.documentElement.lang = chrome.i18n.getUILanguage();
+}
+
 // DOM 元素
 const currentTabInfo = document.getElementById('current-tab-info');
 const startWizardBtn = document.getElementById('start-wizard-btn');
@@ -14,6 +33,9 @@ const configCountHint = document.getElementById('config-count-hint');
 
 // 初始化
 async function init() {
+  // 应用国际化
+  applyI18n();
+
   // 加载配置
   await loadSitesConfig();
 
@@ -30,13 +52,15 @@ async function loadSitesConfig() {
     AI_SITES = response?.data || [];
     updateConfigCount();
   } catch (e) {
-    console.error('加载配置失败:', e);
+    console.error(i18n('loadConfigFailed'), e);
   }
 }
 
 function updateConfigCount() {
   if (configCountHint) {
-    configCountHint.textContent = `当前已保存 ${AI_SITES.length} 个站点配置`;
+    // 使用 i18n 格式化配置数量
+    const template = i18n('configCountHint');
+    configCountHint.textContent = template.replace('$COUNT$', AI_SITES.length);
   }
 }
 
@@ -60,17 +84,17 @@ async function analyzeCurrentTab() {
     const state = loginStates[matchedSite.id];
 
     const statusHtml = state && state.isLoggedIn
-      ? `<span class="status-badge status-logged-in">✅ 已登录</span>`
-      : `<span class="status-badge status-logged-out">❌ 未登录</span>`;
+      ? `<span class="status-badge status-logged-in">${i18n('statusLoggedIn')}</span>`
+      : `<span class="status-badge status-logged-out">${i18n('statusLoggedOut')}</span>`;
 
     currentTabInfo.innerHTML = `
       <div style="margin-bottom:5px;"><strong>${matchedSite.name}</strong></div>
-      <div>状态: ${statusHtml}</div>
+      <div>${i18n('statusLabel')} ${statusHtml}</div>
       <div style="font-size:11px; color:#888; margin-top:5px;">ID: ${matchedSite.id}</div>
     `;
   } else {
     currentTabInfo.innerHTML = `
-      <div style="color:#666;">当前站点未配置</div>
+      <div style="color:#666;">${i18n('siteNotConfigured')}</div>
       <div style="font-size:11px; color:#888; margin-top:5px;">${domain}</div>
     `;
   }
@@ -112,7 +136,7 @@ function bindEvents() {
   // 清空配置
   if (clearSavedBtn) {
     clearSavedBtn.addEventListener('click', async () => {
-      if (confirm('确定要清空所有已保存的站点配置吗？此操作不可恢复。')) {
+      if (confirm(i18n('confirmClear'))) {
         await chrome.runtime.sendMessage({ type: 'RESET_CONFIG' });
         await loadSitesConfig();
         await analyzeCurrentTab();

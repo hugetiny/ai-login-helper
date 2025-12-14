@@ -1,0 +1,89 @@
+{
+  "extName": {
+    "message": "AI Login Debugger",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Development tool - Debug AI website login detection logic",
+    "description": "Extension description"
+  },
+  "extTitle": {
+    "message": "AI Login Debugger",
+    "description": "Extension title in toolbar"
+  },
+  "headerTitle": {
+    "message": "🔧 Login Debugger",
+    "description": "Header title"
+  },
+  "headerSubtitle": {
+    "message": "Dev Tool - Smart Config Generator & Status Detection",
+    "description": "Header subtitle"
+  },
+  "wizardSectionTitle": {
+    "message": "✨ Smart Config Wizard",
+    "description": "Wizard section title"
+  },
+  "wizardHint": {
+    "message": "Auto-guided: Cookie diff analysis + Interaction script generation + XHR response capture.",
+    "description": "Wizard hint text"
+  },
+  "startWizardBtn": {
+    "message": "🚀 Start Wizard",
+    "description": "Start wizard button"
+  },
+  "currentStatusTitle": {
+    "message": "📍 Current Page Status",
+    "description": "Current status section title"
+  },
+  "detecting": {
+    "message": "Detecting...",
+    "description": "Loading text"
+  },
+  "configManageTitle": {
+    "message": "📦 Config Management",
+    "description": "Config management section title"
+  },
+  "exportBtn": {
+    "message": "📥 Export sites.json",
+    "description": "Export button"
+  },
+  "clearBtn": {
+    "message": "🗑️ Clear All Configs",
+    "description": "Clear button"
+  },
+  "configCountHint": {
+    "message": "Currently saved $COUNT$ site configs",
+    "description": "Config count hint",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "5"
+      }
+    }
+  },
+  "statusLoggedIn": {
+    "message": "✅ Logged In",
+    "description": "Logged in status"
+  },
+  "statusLoggedOut": {
+    "message": "❌ Logged Out",
+    "description": "Logged out status"
+  },
+  "statusLabel": {
+    "message": "Status:",
+    "description": "Status label"
+  },
+  "siteNotConfigured": {
+    "message": "Site not configured",
+    "description": "Site not configured message"
+  },
+  "confirmClear": {
+    "message": "Are you sure you want to clear all saved site configs? This action cannot be undone.",
+    "description": "Clear confirmation"
+  },
+  "loadConfigFailed": {
+    "message": "Failed to load config:",
+    "description": "Load config error"
+  }
+}
+

@@ -1,0 +1,89 @@
+{
+  "extName": {
+    "message": "AI 登录检测调试器",
+    "description": "扩展名称"
+  },
+  "extDescription": {
+    "message": "开发工具 - 调试 AI 网站登录检测逻辑",
+    "description": "扩展描述"
+  },
+  "extTitle": {
+    "message": "AI 登录检测调试器",
+    "description": "工具栏中的扩展标题"
+  },
+  "headerTitle": {
+    "message": "🔧 登录检测调试器",
+    "description": "头部标题"
+  },
+  "headerSubtitle": {
+    "message": "开发工具 - 智能配置生成 & 状态检测",
+    "description": "头部副标题"
+  },
+  "wizardSectionTitle": {
+    "message": "✨ 智能配置向导",
+    "description": "向导区块标题"
+  },
+  "wizardHint": {
+    "message": "自动引导完成：Cookie 差异分析 + 交互脚本生成 + XHR 响应捕获。",
+    "description": "向导提示文本"
+  },
+  "startWizardBtn": {
+    "message": "🚀 启动向导 (Wizard)",
+    "description": "启动向导按钮"
+  },
+  "currentStatusTitle": {
+    "message": "📍 当前页面状态",
+    "description": "当前状态区块标题"
+  },
+  "detecting": {
+    "message": "检测中...",
+    "description": "加载文本"
+  },
+  "configManageTitle": {
+    "message": "📦 配置管理",
+    "description": "配置管理区块标题"
+  },
+  "exportBtn": {
+    "message": "📥 导出 sites.json",
+    "description": "导出按钮"
+  },
+  "clearBtn": {
+    "message": "🗑️ 清空所有配置",
+    "description": "清空按钮"
+  },
+  "configCountHint": {
+    "message": "当前已保存 $COUNT$ 个站点配置",
+    "description": "配置数量提示",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "5"
+      }
+    }
+  },
+  "statusLoggedIn": {
+    "message": "✅ 已登录",
+    "description": "已登录状态"
+  },
+  "statusLoggedOut": {
+    "message": "❌ 未登录",
+    "description": "未登录状态"
+  },
+  "statusLabel": {
+    "message": "状态:",
+    "description": "状态标签"
+  },
+  "siteNotConfigured": {
+    "message": "当前站点未配置",
+    "description": "站点未配置消息"
+  },
+  "confirmClear": {
+    "message": "确定要清空所有已保存的站点配置吗？此操作不可恢复。",
+    "description": "清空确认"
+  },
+  "loadConfigFailed": {
+    "message": "加载配置失败:",
+    "description": "加载配置错误"
+  }
+}
+

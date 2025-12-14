@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI 登录检测调试器</title>
+  <title data-i18n="headerTitle"></title>
   <link rel="stylesheet" href="popup.css">
   <style>
     /* 简化版样式 */
@@ -114,39 +114,35 @@
 <body>
   <div class="container">
     <header class="header">
-      <h1>🔧 登录检测调试器</h1>
-      <p class="subtitle">开发工具 - 智能配置生成 & 状态检测</p>
+      <h1 data-i18n="headerTitle"></h1>
+      <p class="subtitle" data-i18n="headerSubtitle"></p>
     </header>
 
     <!-- 1. 智能向导入口 -->
     <section class="section">
-      <h2>✨ 智能配置向导</h2>
-      <p class="hint" style="margin-bottom: 12px;">
-        自动引导完成：Cookie 差异分析 + 交互脚本生成 + XHR 响应捕获。
-      </p>
-      <button id="start-wizard-btn" class="btn btn-success full-width" style="padding: 12px; font-size: 15px; font-weight: bold;">
-        🚀 启动向导 (Wizard)
-      </button>
+      <h2 data-i18n="wizardSectionTitle"></h2>
+      <p class="hint" style="margin-bottom: 12px;" data-i18n="wizardHint"></p>
+      <button id="start-wizard-btn" class="btn btn-success full-width" style="padding: 12px; font-size: 15px; font-weight: bold;" data-i18n="startWizardBtn"></button>
     </section>
 
     <!-- 2. 当前页面状态 -->
     <section class="section">
-      <h2>📍 当前页面状态</h2>
+      <h2 data-i18n="currentStatusTitle"></h2>
       <div id="current-tab-info" class="info-box">
-        <div class="loading">检测中...</div>
+        <div class="loading" data-i18n="detecting"></div>
       </div>
     </section>
 
     <!-- 3. 导出工具 -->
     <section class="section">
-      <h2>📦 配置管理</h2>
+      <h2 data-i18n="configManageTitle"></h2>
       <div class="toolbar">
-        <button id="export-all-btn" class="btn btn-primary full-width">📥 导出 sites.json</button>
+        <button id="export-all-btn" class="btn btn-primary full-width" data-i18n="exportBtn"></button>
       </div>
       <div class="toolbar">
-        <button id="clear-saved-btn" class="btn btn-danger full-width">🗑️ 清空所有配置</button>
+        <button id="clear-saved-btn" class="btn btn-danger full-width" data-i18n="clearBtn"></button>
       </div>
-      <p class="hint" id="config-count-hint">当前已保存 0 个站点配置</p>
+      <p class="hint" id="config-count-hint"></p>
     </section>
 
   </div>

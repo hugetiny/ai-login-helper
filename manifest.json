@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "AI Login Debugger",
+  "name": "__MSG_extName__",
   "version": "1.0.0",
-  "description": "开发工具 - 调试 AI 网站登录检测逻辑",
+  "description": "__MSG_extDescription__",
   "author": "Perplexica Dev",
+  "default_locale": "zh_CN",
   "permissions": [
     "cookies",
     "storage",
@@ -38,7 +39,7 @@
       "48": "icons/icon48.png",
       "128": "icons/icon128.png"
     },
-    "default_title": "AI 登录检测调试器"
+    "default_title": "__MSG_extTitle__"
   },
   "icons": {
     "16": "icons/icon16.png",
