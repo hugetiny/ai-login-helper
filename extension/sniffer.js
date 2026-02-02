@@ -224,17 +224,44 @@
       send.apply(this, arguments);
     };
 
+    // 安全获取响应文本（处理不同 responseType）
+    function getResponseText(xhr) {
+      try {
+        // 只有 responseType 为 '' 或 'text' 时才能访问 responseText
+        if (!xhr.responseType || xhr.responseType === '' || xhr.responseType === 'text') {
+          return xhr.responseText || '';
+        }
+        // 对于 json 类型，尝试序列化 response
+        if (xhr.responseType === 'json' && xhr.response) {
+          return JSON.stringify(xhr.response);
+        }
+        // 对于 arraybuffer/blob，尝试解码（仅在 load 事件时有效）
+        if (xhr.responseType === 'arraybuffer' && xhr.response) {
+          try {
+            const decoder = new TextDecoder('utf-8');
+            return decoder.decode(xhr.response);
+          } catch (e) {
+            return '[arraybuffer data]';
+          }
+        }
+        return '';
+      } catch (e) {
+        return '';
+      }
+    }
+
     // 监听进度事件以捕获增量数据
     xhr.addEventListener('progress', function() {
       const contentType = this.getResponseHeader('content-type') || '';
       const isStreaming = isStreamingContentType(contentType);
       const isGrpc = isGrpcConnectType(contentType);
 
-      if (this.responseText && this.responseText.length > 0) {
+      const responseText = getResponseText(this);
+      if (responseText && responseText.length > 0) {
         window.postMessage({
           type: 'AI_SNIFFER_RESPONSE_BODY',
           data: {
-            url: this._url, method: this._method, body: this.responseText,
+            url: this._url, method: this._method, body: responseText,
             type: 'xhr', timeSinceInteraction: this._timeSinceInteraction,
             partial: true, contentType, isStreaming, isGrpc, requestId: this._requestId
           }
@@ -248,10 +275,11 @@
       const isStreaming = isStreamingContentType(contentType);
       const isGrpc = isGrpcConnectType(contentType);
 
+      const responseText = getResponseText(this);
       window.postMessage({
         type: 'AI_SNIFFER_RESPONSE_BODY',
         data: {
-          url: this._url, method: this._method, body: this.responseText,
+          url: this._url, method: this._method, body: responseText,
           type: 'xhr', timeSinceInteraction: this._timeSinceInteraction,
           partial: false, duration, contentType, isStreaming, isGrpc, requestId: this._requestId
         }

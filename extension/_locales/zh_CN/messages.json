@@ -84,6 +84,18 @@
   "loadConfigFailed": {
     "message": "加载配置失败:",
     "description": "加载配置错误"
+  },
+  "errorSiteIdExists": {
+    "message": "站点 ID 已存在",
+    "description": "添加重复站点时的错误"
+  },
+  "errorSiteNotFound": {
+    "message": "站点不存在",
+    "description": "站点不存在时的错误"
+  },
+  "errorInvalidConfigFormat": {
+    "message": "无效的配置格式",
+    "description": "配置格式无效时的错误"
   }
 }
 

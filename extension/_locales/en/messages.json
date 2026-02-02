@@ -84,6 +84,18 @@
   "loadConfigFailed": {
     "message": "Failed to load config:",
     "description": "Load config error"
+  },
+  "errorSiteIdExists": {
+    "message": "Site ID already exists",
+    "description": "Error when adding duplicate site"
+  },
+  "errorSiteNotFound": {
+    "message": "Site not found",
+    "description": "Error when site does not exist"
+  },
+  "errorInvalidConfigFormat": {
+    "message": "Invalid config format",
+    "description": "Error when config format is invalid"
   }
 }
 

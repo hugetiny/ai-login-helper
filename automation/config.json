@@ -1,0 +1,70 @@
+{
+  "sms": {
+    "url": "https://receive-smss.com/sms/31620185296/",
+    "phoneNumber": "620185296",
+    "countryCode": "+31",
+    "pollingInterval": 30000,
+    "timeout": 300000,
+    "selectors": {
+      "messageBlockSplit": "Sender",
+      "timestampRegex": "Time(.*?ago)",
+      "codeRegex": "\\b\\d{4,8}\\b",
+      "contentSplit": "Message"
+    }
+  },
+  "defaultTimeout": 5000,
+  "sites": [
+    {
+      "id": "doubao",
+      "name": "豆包",
+      "url": "https://www.doubao.com/",
+      "icon": "🤖",
+      "enabled": true,
+      "domains": [
+        "www.doubao.com",
+        ".doubao.com"
+      ],
+      "cookieRules": {
+        "anyOf": true,
+        "excludeCookies": [],
+        "authIndicators": [
+          "passport_fe_beating_status",
+          "passport_csrf_token",
+          "passport_csrf_token_default",
+          "passport_mfa_token",
+          "d_ticket"
+        ]
+      },
+      "keywords": ["Doubao", "豆包", "verification", "code", "验证码"],
+      "actions": {
+        "init": [
+          { "type": "goto", "url": "https://www.doubao.com/" },
+          { "type": "wait", "timeout": 3000 },
+          { "type": "click", "selector": "[data-testid='to_login_button']", "optional": true },
+          { "type": "wait", "timeout": 2000 }
+        ],
+        "fillPhone": [
+          { "type": "waitForSelector", "selector": "[data-testid='login_phone_number_input']", "timeout": 10000 },
+          { "type": "click", "selector": ".country-code-select-aG7Dks", "optional": true },
+          { "type": "wait", "selector": ".country-code-select-item-UuS1Ex", "timeout": 2000, "optional": true },
+          { "type": "click", "selector": ".country-code-select-item-UuS1Ex:has-text('+31')", "optional": true, "force": true },
+          { "type": "wait", "timeout": 500 },
+          { "type": "fill", "selector": "[data-testid='login_phone_number_input']", "value": "{phoneNumber}" },
+          { "type": "click", "selector": "[data-testid='login_agreement_check']", "force": true },
+          { "type": "click", "selector": "[data-testid='login_next_button']" }
+        ],
+        "triggerSms": [
+          { "type": "wait", "timeout": 5000 }
+        ],
+        "fillCode": [
+          { "type": "fill", "selector": "input[name='code'], input[placeholder*='验证码']", "value": "{code}" },
+          { "type": "click", "selector": "button[type='submit'], text=登录" }
+        ],
+        "verifyLogin": [
+          { "type": "wait", "timeout": 5000 },
+          { "type": "waitForSelector", "selector": "div[class*='avatar'], .user-icon", "timeout": 30000 }
+        ]
+      }
+    }
+  ]
+}

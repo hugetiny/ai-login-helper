@@ -488,7 +488,7 @@ async function addNewSite(newSite) {
   try {
     // 检查 ID 是否已存在
     if (AI_SITES.some(s => s.id === newSite.id)) {
-      return { success: false, error: '站点 ID 已存在' };
+      return { success: false, error: chrome.i18n.getMessage('errorSiteIdExists') || 'Site ID already exists' };
     }
 
     // 添加到配置
@@ -519,7 +519,7 @@ async function updateSite(updatedSite) {
   try {
     const index = AI_SITES.findIndex(s => s.id === updatedSite.id);
     if (index === -1) {
-      return { success: false, error: '站点不存在' };
+      return { success: false, error: chrome.i18n.getMessage('errorSiteNotFound') || 'Site not found' };
     }
 
     AI_SITES[index] = updatedSite;
@@ -551,7 +551,7 @@ async function deleteSite(siteId) {
   try {
     const index = AI_SITES.findIndex(s => s.id === siteId);
     if (index === -1) {
-      return { success: false, error: '站点不存在' };
+      return { success: false, error: chrome.i18n.getMessage('errorSiteNotFound') || 'Site not found' };
     }
 
     const siteName = AI_SITES[index].name;
@@ -613,7 +613,7 @@ async function exportConfig() {
 async function importConfig(config) {
   try {
     if (!config || !config.sites || !Array.isArray(config.sites)) {
-      return { success: false, error: '无效的配置格式' };
+      return { success: false, error: chrome.i18n.getMessage('errorInvalidConfigFormat') || 'Invalid config format' };
     }
 
     await chrome.storage.local.set({ sitesConfig: config });
